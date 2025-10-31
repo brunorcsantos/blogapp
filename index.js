@@ -3,7 +3,7 @@ import cors from "cors";
 import userRouter from "./routes/user.route.js";
 import postRouter from "./routes/post.route.js";
 import commentRouter from "./routes/comment.route.js";
-import dbConnection from "./lib/connectDB.js";
+import dbConnection from "./lib/mongoDB.js";
 
 const app = express();
 const port = process.env.PORT;
