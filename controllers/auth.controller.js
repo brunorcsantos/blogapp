@@ -58,8 +58,6 @@ export const login = async (req, res) => {
 export const logout = async (req, res) => {
   res.status(200).json({ deleteToken: true });
 };
-// TODO: LISTAR TODOS OS USUARIOS
-// TODO: LISTAR UM USUÁRIO
 // TODO VERIFICAR O TOKEN
 export const validateToken = (req, res, next) => {
   const { authorization } = req.headers;
@@ -78,3 +76,16 @@ export const validateToken = (req, res, next) => {
     next(); // segue para a próxima função (rota)
   });
 };
+// TODO: LISTAR TODOS OS USUARIOS
+export const getAllUsers = async (req, res) => {
+  const users = await User.find();
+
+  res.status(200).json(users);
+}
+// TODO: LISTAR UM USUÁRIO
+export const getUser = async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findById({_id: id});
+
+  res.status(200).json(user);
+}

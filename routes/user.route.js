@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUser, login, validateToken } from "../controllers/auth.controller.js";
+import { createUser, getAllUsers, getUser, login, validateToken } from "../controllers/auth.controller.js";
 
 const router = Router();
 
@@ -9,5 +9,7 @@ router.get("/anothertest", (req, res) => {
 
 router.post("/register", createUser);
 router.post("/login", login);
+router.get("/", getAllUsers);
+router.get("/:id", getUser);
 
 export default router;
